@@ -10,76 +10,52 @@ namespace Trabalho_Djalma_2
     {
         static void Main(string[] args)
         {
+            string nome;
+            double trabalho, prova1, prova2, media;
+            int sair;
 
-
-            string aluno; double p1, p2, trabalho;
-
-            Console.Write("Por favor, insira seu nome e sobrenome: ");
-            aluno = Console.ReadLine();
-
-            Console.Clear();
-
-            Console.WriteLine("Olá " + aluno );
-            Console.WriteLine("Vamos vê como você se saiu, prepare-se ");
-            Console.Write("\nPor favor, digite a nota da sua Primeira Prova: ");
-            p1 = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Agora, digite a nota da sua Segunda Prova: ");
-            p2 = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Por último, digite a nota que você tirou no Trabalho: ");
-            trabalho = Convert.ToDouble(Console.ReadLine());
-
-            if ((p1 < 0 || p1 > 10) || (p2 < 0 || p2 > 10) || (trabalho < 0 || trabalho > 10))
+            do
             {
+                Console.WriteLine("-----Universidade Unifaat-----");
+                Console.Write("");
+                Console.Write("Informe o nome do aluno: ");
+                nome = Console.ReadLine();
+                Console.Write("Informe a nota do trabalho: ");
+                trabalho = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Informe a nota da primeira prova: ");
+                prova1 = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Informe a nota da segunda prova: ");
+                prova2 = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine();
 
-                Console.WriteLine("Por favor, tome cuidado, digite uma nota válida. Não é permitido números menor que 0 ou maior que 10");
-                Console.ReadKey();
-            }
-
-            else
-            {
-                double media = (p1 + p2 + trabalho) / 3;
+                media = (trabalho + prova1 + prova2) / 3;
 
                 if (media >= 8.5)
                 {
-
-                    Console.WriteLine("Se prepare, chegou a hora...");
-                    Console.WriteLine("Meus Parabéns " + aluno + "! Sua média foi de " + media + "\nConceito: A");
-                    Console.ReadKey();
-
+                    Console.WriteLine($"O aluno {nome} obteve conceito A");
                 }
-
-                else if (media >= 7 && media < 8.5)
+                else if (media >= 7)
                 {
-                    Console.WriteLine("Se prepare, chegou a hora...");
-                    Console.WriteLine("Parabéns " + aluno + "! Sua média foi de " + media + "\nConceito: B");
-                    Console.ReadKey();
-
+                    Console.WriteLine($"O aluno {nome} ficou com conceito B");
                 }
-
-                else if (media >= 6 && media < 7)
+                else if (media >= 6)
                 {
-                    Console.WriteLine("Se prepare, chegou a hora...");
-                    Console.WriteLine(aluno + ", sabemos que você é capaz, se esforce só mais um pouco! Sua média foi " + media + "\nConceito: C");
-                    Console.ReadKey();
+                    Console.WriteLine($"O aluno {nome} ficou com conceito C");
                 }
-
-                else if (media >= 0.1 && media < 6)
+                else if (media >= 0.1)
                 {
-                    Console.WriteLine("Se prepare, chegou a hora...");
-                    Console.WriteLine(aluno + ", te vemos na próxima prova... sua média foi de " + media + "\nConceito: D");
-                    Console.ReadKey();
+                    Console.WriteLine($"O aluno {nome} ficou com conceito D");
                 }
-
-                else if (media == 0)
+                else
                 {
-                    Console.WriteLine("Um instante, por favor...");
-                    Console.WriteLine(aluno + ", infelizmente sentimos em te dizer que sua média foi " + media + "\nConceito: E");
-                    Console.ReadKey();
+                    Console.WriteLine($"O aluno {nome} ficou com conceito E");
                 }
 
-            }
+
+                Console.WriteLine("Digite 1 para CONTINUAR e 2 para SAIR");
+                sair = Convert.ToInt32(Console.ReadLine());
+            } while (sair != 2);
+           
 
         }
     }
